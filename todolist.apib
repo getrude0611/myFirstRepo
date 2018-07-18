@@ -1,0 +1,170 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# TODOLIST API Documentation
+
+toDoList is an API that allows users to manage their tasks by viewing, adding, editing and deleting tasks.
+
+## Resource Collection [/todolist]
+
+### List All Tasks [GET /api/tasks]
++ Request 
+
+        {
+            http://todolist.test/api/tasks
+        }  
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 5,
+                "name": "Holiday",
+                "description": "Enjoy the holiday",
+                "dueDate": "2018-01-07",
+                "status": 0,
+                "created_at": null,
+                "updated_at": "2018-06-26 07:37:51"
+            },
+            {
+                "id": 6,
+                "name": "one",
+                "description": "number one",
+                "dueDate": "2018-06-01",
+                "status": 0,
+                "created_at": null,
+                "updated_at": null
+            },
+            {
+                "id": 7,
+                "name": "icons",
+                "description": "8-menu-30.png",
+                "dueDate": "2018-06-07",
+                "status": 0,
+                "created_at": "2018-06-25 13:54:54",
+                "updated_at": "2018-06-26 07:36:31"
+            }
+        ]
+        This action allows the consumer to access all tasks
+        
+        
+        
+        
+### View Task [GET  /api/tasks/{id}]
+
++ Request (application/json)
+
+        {
+            http://todolist.test/api/task/{id}
+        } 
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content_type: application/json
+
+    + Body
+
+            {
+                "name": "testing 2",
+                "description": "testing the second one",
+                "dueDate": "2018-10-10",
+                "updated_at": "2018-06-27 14:28:55",
+                "created_at": "2018-06-27 14:28:55",
+                "id": 13
+            }
+            This action allows the consumer to access the details of a specific task
+        
+        
+        
+        
+### Add Task [POST  /api/tasks]
+
++ Request (application/json)
+
+        {
+            "name":"testing 2",
+            "description":"testing the second one ",
+            "dueDate":"2018-10-10"
+        }  
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Content_type: application/json
+
+    + Body
+
+            {
+                "name": "testing 2",
+                "description": "testing the second one",
+                "dueDate": "2018-10-10",
+                "updated_at": "2018-06-27 14:28:55",
+                "created_at": "2018-06-27 14:28:55",
+                "id": 13
+            }
+            You can create a task with this action. It takes a JSON object containing the name, description and due date of the task.
+    
+    
+    
+            
+### Edit task [PUT  /api/tasks/{id}]
+
++ Request (application/json)
+
+        {
+            "name":"testing 2",
+            "description":"testing the second one ",
+            "dueDate":"2018-10-10"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Content_type: application/json
+
+    + Body
+
+            {
+                "name": "testing 2",
+                "description": "testing the second one",
+                "dueDate": "2018-10-10",
+                "updated_at": "2018-06-27 14:28:55",
+                "created_at": "2018-06-27 14:28:55",
+                "id": 13
+            }
+            You can edit a task with this action. It takes a JSON object containing the name, description and due date of the task.
+                     
+                     
+                     
+                     
+### Delete task [DELETE /api/tasks/{id}]
+
++ Request (application/json)
+
+            {
+                http://todolist.test/task/api/delete/{id}
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Content_type: application/json
+
+    + Body
+
+            {
+                "id": 10,
+                "name": "icons8",
+                "description": "8-menu-30.png",
+                "dueDate": "2018-01-03",
+                "status": 0,
+                "created_at": "2018-06-25 15:29:57",
+                "updated_at": "2018-06-25 15:29:57"
+            }
+            You can delete a task with this action. It takes a JSON object containing the name, description and due date of the task.
+            
